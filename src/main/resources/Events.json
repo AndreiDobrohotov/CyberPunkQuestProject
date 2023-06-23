@@ -1,0 +1,70 @@
+[
+    {
+        "eventName": "event1",
+        "eventContent": "[user] потерял память. Принять вызов НЛО?",
+        "actions": [
+          {
+            "actionContent": "принять вызов",
+            "nextEvent": "event3"
+          },
+          {
+            "actionContent": "отклонить вызов",
+            "nextEvent": "event2"
+          }
+        ]
+    },
+
+    {
+        "eventName": "event2",
+        "eventContent": "Ты отклонил вызов. Поражение",
+        "actions": null
+    },
+
+    {
+        "eventName": "event3",
+        "eventContent": "Ты принял вызов. Поднимаешься на мостик к капитану?",
+        "actions": [
+          {
+            "actionContent": "Подняться на мостик",
+            "nextEvent": "event5"
+          },
+          {
+            "actionContent": "Отказаться подниматься на мостик",
+            "nextEvent": "event4"
+          }
+        ]
+    },
+
+    {
+        "eventName": "event4",
+        "eventContent": "Ты не пошел на переговоры. Поражение",
+        "actions": null
+    },
+
+    {
+        "eventName": "event5",
+        "eventContent": "Ты поднялся на мостик. Ты кто?",
+        "actions": [
+          {
+            "actionContent": "Рассказать о себе правду",
+            "nextEvent": "event7"
+          },
+          {
+            "actionContent": "Солгать о себе",
+            "nextEvent": "event6"
+          }
+        ]
+    },
+
+    {
+        "eventName": "event6",
+        "eventContent": "Твою ложь разоблачили. Поражение",
+        "actions": null
+    },
+
+    {
+        "eventName": "event7",
+        "eventContent": "Тебя вернули домой. Победа",
+        "actions": null
+    }
+]

@@ -1,0 +1,110 @@
+:root{
+    --text_color: rgb(180, 180, 180);
+    --block_bg: rgb(15, 15, 15);
+    --field_bg: hsla(240, 49%, 43%, 0.91);
+    --neon: rgba(0,255,255,0.7);
+    --neon_hover: rgba(255, 100, 100, 0.5);
+    --neon_selected: rgba(255, 0, 0, 0.7);
+}
+
+@font-face {
+    font-weight: 400;
+    font-family: MainFont;
+    src: url(aldrich.ttf);
+}
+
+body {
+    background: url(images/bg.jpg) no-repeat fixed;
+    background-size: cover;
+    position: relative;
+    height: auto;
+    max-width: 60em;
+    min-width: 45em;
+    margin: 6em auto 12em;
+}
+
+.field{
+    display: block;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--field_bg);
+    margin: auto;
+}
+
+.block, .sticky-window{
+    background-color:var(--block_bg);
+    color: var(--text_color);
+    font-size: 20px;
+    padding: 20px;
+    font-family: MainFont, serif;
+}
+.block{
+    margin: 40px;
+}
+.sticky-window {
+    bottom: 20px;
+    left: 20px;
+    height: 150px;
+    position: fixed;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.neon, .neon_static{
+    box-shadow:
+            0 1px 2px 0 var(--neon),
+            1px 2px 4px 0 var(--neon),
+            2px 4px 8px 0 var(--neon),
+            2px 4px 16px 0 var(--neon);
+    transition: box-shadow 0.3s ease;
+}
+
+.neon:hover{
+    box-shadow:
+            0 1px 2px 0 var(--neon_hover),
+            1px 2px 4px 0 var(--neon_hover),
+            2px 4px 8px 0 var(--neon_hover),
+            2px 4px 16px 0 var(--neon_hover);
+    transition: box-shadow 0.3s ease;
+}
+
+.neon_selected {
+    box-shadow:
+            0 1px 2px 0 var(--neon_selected),
+            1px 2px 4px 0 var(--neon_selected),
+            2px 4px 8px 0 var(--neon_selected),
+            2px 4px 16px 0 var(--neon_selected);
+    transition: box-shadow 0.3s ease;
+}
+
+.half-width {
+    width: 43%;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: inline-block;
+    background-color:var(--block_bg);
+    color: var(--text_color);
+    font-size: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: MainFont, serif;
+}
+
+.small_text{
+    font-size: 18px;
+    text-align: left;
+}
+
+.button_class{
+    background-color:var(--block_bg);
+    color: var(--text_color);
+    font-size: 20px;
+    padding: 5px 15px;
+    font-family: MainFont, serif;
+}
+
+
+

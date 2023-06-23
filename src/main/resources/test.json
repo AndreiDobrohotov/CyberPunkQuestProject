@@ -1,0 +1,67 @@
+{
+  "title": {
+    "textContent": "Вступление",
+    "maleCharName": "Мужик",
+    "maleCharBio": "Био Мужика",
+    "femaleCharName": "Мадам",
+    "femaleCharBio": "Био Мадам",
+    "startEvent": "event1"
+  },
+
+  "events": {
+    "event1": {
+      "textContent": "[user] потерял память. Принять вызов НЛО?",
+      "type": "NORMAL",
+      "actions": [
+        {
+          "textContent": "принять вызов",
+          "nextEvent": "event2"
+        },
+        {
+          "textContent": "отклонить вызов",
+          "nextEvent": "event2"
+        }
+      ]
+    },
+    "event2": {
+      "textContent": "[user] принял вызов. Поднимаешься на мостик к капитану?",
+      "type": "NORMAL",
+      "actions": [
+        {
+          "textContent": "выбор1",
+          "nextEvent": "event1"
+        },
+        {
+          "textContent": "выбор2",
+          "nextEvent": "event1"
+        },
+        {
+          "textContent": "выбор3",
+          "nextEvent": "event1"
+        },
+        {
+          "textContent": "выбор4",
+          "nextEvent": "event1"
+        },
+        {
+          "textContent": "выбор5",
+          "nextEvent": "event4"
+        },
+        {
+          "textContent": "выбор6",
+          "nextEvent": "event3"
+        }
+      ]
+    },
+    "event3": {
+      "textContent": "Ты отклонил вызов. Поражение",
+      "type": "LOSE",
+      "actions": []
+    },
+    "event4": {
+      "textContent": "Тебя вернули домой. Победа",
+      "type": "WIN",
+      "actions": []
+    }
+  }
+}
