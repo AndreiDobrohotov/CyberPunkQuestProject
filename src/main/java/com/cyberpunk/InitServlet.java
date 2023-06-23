@@ -25,7 +25,7 @@ public class InitServlet extends HttpServlet {
         session.setAttribute("name","САМЫЙ ЛУЧШИЙ ПОЛЬЗОВАТЕЛЬ");
         session.setAttribute("eventName","event1");
         session.setAttribute("count",0);
-        getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
+        resp.sendRedirect("/index.jsp");
         //session.setAttribute("test",main.getEvent("event1"));
         //session.setAttribute("test2","test2");
 
