@@ -1,4 +1,4 @@
-package com.cyberpunk;
+package com.cyberpunk.events;
 
 import com.google.gson.Gson;
 
@@ -26,7 +26,7 @@ public class EventDB {
 
     private static EventDB initDB(){
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        try(InputStreamReader reader = new InputStreamReader(Objects.requireNonNull(loader.getResourceAsStream("test.json")))){
+        try(InputStreamReader reader = new InputStreamReader(Objects.requireNonNull(loader.getResourceAsStream("events.json")))){
             Gson gson = new Gson();
             return gson.fromJson(reader,EventDB.class);
         } catch (IOException e) {
@@ -35,10 +35,7 @@ public class EventDB {
     }
 
     public Event getEvent(String eventName){
-        return events.get(eventName);
-    }
-
-    public Title getTitle() {
-        return title;
+        if(eventName.equals("title")) return title;
+        else return events.get(eventName);
     }
 }

@@ -1,59 +1,38 @@
 <html>
 <head>
-    <title>RPG</title>
-    <%@ page import="com.cyberpunk.Event" %>
-    <%@ page import="com.cyberpunk.Action" %>
+    <title>CyberPunkQuest</title>
     <%@ page contentType="text/html;charset=UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
     <div class="field neon_static">
+        <!-- окно статистики -->
+        <jsp:include page="statistic.jsp"/>
 
+        <!-- в зависимости от типа текущего события вплетаем нужную страницу -->
         <c:choose>
+            <c:when test="${currentEvent.getType() eq 'TITLE'}">
+                <jsp:include page="title.jsp"/>
+            </c:when>
             <c:when test="${currentEvent.getType() eq 'NORMAL'}">
-                <h1>normal</h1>
+                <jsp:include page="event.jsp"/>
             </c:when>
             <c:when test="${currentEvent.getType() eq 'WIN'}">
-               <h1>победка</h1>
+                <jsp:include page="endgame.jsp"/>
             </c:when>
             <c:when test="${currentEvent.getType() eq 'LOSE'}">
-                <h1>оп лузерок</h1>
+                <jsp:include page="endgame.jsp"/>
             </c:when>
-            <c:otherwise>
-                <h1>титульник</h1>
-            </c:otherwise>
         </c:choose>
-        <jsp:include page="title.jsp"/>
-        <form action="/start" method="POST">
-            <% Event currentEvent = (Event) session.getAttribute("currentEvent");%>
-            <div class = "block neon_static">
-                <p>${currentEvent.getTextContent()}</p>
-            </div>
-            <% for(Action action: currentEvent.getActions()) { %>
-            <div class="block neon" onclick="handleClick(this)">
-                <input type="radio"
-                       name="selectedAction"
-                       value="<%= action.getNextEvent() %>">
-                <label><%= action.getTextContent() %></label>
-            </div>
-            <% } %>
-            <input type="submit" class="button_class neon" value="Выбрать">
-        </form>
-
-
-
-        <jsp:include page="stat.jsp"/>
-
     </div>
-
-
 </body>
 
 <script>
     let selectedAction;
 
+    //функция подсветки для радио-кнопок при нажатии/отжатии
     function handleClick(radio) {
         if(radio!==selectedAction){
             radio.querySelector('input[type="radio"]').checked = true;
@@ -70,10 +49,6 @@
             radio.classList.remove('neon_selected');
             selectedAction = null;
         }
-
-
     }
-
-
 </script>
 </html>

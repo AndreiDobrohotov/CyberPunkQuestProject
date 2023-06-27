@@ -1,17 +1,13 @@
-package com.cyberpunk;
+package com.cyberpunk.events;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Event {
     private String textContent;
-
     private EventType type;
     private ArrayList<Action> actions;
-
-    public Event() {
-    }
 
     public EventType getType() {
         return type;
